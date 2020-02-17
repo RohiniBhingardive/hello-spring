@@ -34,7 +34,7 @@ public class HelloController {
         if(language.equalsIgnoreCase("english"))
         {
             return "<html>" +
-                    "<body>" +
+                    "<body style='background-color: coral'>" +
                     "Hello, " +
                     "<font color='Green'>" +
                      name + "!" +
@@ -45,7 +45,7 @@ public class HelloController {
         else if(language.equalsIgnoreCase("french"))
         {
             return "<html>" +
-                    "<body>" +
+                    "<body style='background-color: coral'>" +
                     "Bonjour, " +
                     "<font color='Green'>" +
                     name + "!" +
@@ -56,7 +56,7 @@ public class HelloController {
         else if(language.equalsIgnoreCase("spanish"))
         {
             return "<html>" +
-                    "<body>" +
+                    "<body style='background-color: coral'>" +
                     "Hola, " +
                     "<font color='Green'>" +
                     name + "!" +
@@ -67,7 +67,7 @@ public class HelloController {
         else if(language.equalsIgnoreCase("hindi"))
         {
             return "<html>" +
-                    "<body>" +
+                    "<body style='background-color: coral'>" +
                     "Namaste, " +
                     "<font color='Green'>" +
                     name + "!" +
@@ -78,7 +78,7 @@ public class HelloController {
         else if(language.equalsIgnoreCase("german"))
         {
             return "<html>" +
-                    "<body>" +
+                    "<body style='background-color: coral'>" +
                     "Hallo, " +
                     "<font color='Green'>" +
                     name + "!" +
@@ -88,7 +88,7 @@ public class HelloController {
         }
         else
         {
-            return "Hello, " + name + "!. Your language is unknown.";
+            return "Hello, " + name + "! Your language is unknown.";
         }
 
 
