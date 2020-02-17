@@ -2,12 +2,19 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Inside Thymeleaf</title>
 </head>
 <body>
 
-    <form action = '/hello' method = 'post' >
+    <form method = 'get' action = '/hello'>
         <input type = 'text' name = 'name' />
+        <select name='language'>
+            <option value='English' selected>English</option>
+            <option value='French'>French</option>
+            <option value='Spanish'>Spanish</option>
+            <option value='Hindi'>Hindi</option>
+            <option value='German'>German</option>
+        </select>
         <input type = 'submit' value = 'Greet Me!' />
     </form>
 

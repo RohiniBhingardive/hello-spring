@@ -1,6 +1,7 @@
 package org.launchcode.hellospring.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -28,70 +29,37 @@ public class HelloController {
     // lives at /hello/hello
     // Handles request of the form /hello? name= LaunchCode
     @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
-    public String helloWithQueryParam(@RequestParam String name, @RequestParam String language){
 
+    public String helloWithQueryParam(@RequestParam String name, @RequestParam String language, Model model){
+
+        String msg = "";
         if(language.equalsIgnoreCase("english"))
         {
-            return "<html>" +
-                    "<body style='background-color: coral'>" +
-                    "Hello, " +
-                    "<font color='Green'>" +
-                     name + "!" +
-                    "</font>" +
-                    "</body>" +
-                    "</html>";
+            msg = "Hello " + name + "!";
         }
         else if(language.equalsIgnoreCase("french"))
         {
-            return "<html>" +
-                    "<body style='background-color: coral'>" +
-                    "Bonjour, " +
-                    "<font color='Green'>" +
-                    name + "!" +
-                    "</font>" +
-                    "</body>" +
-                    "</html>";
+            msg = "Bonjour " + name + "!";
         }
         else if(language.equalsIgnoreCase("spanish"))
         {
-            return "<html>" +
-                    "<body style='background-color: coral'>" +
-                    "Hola, " +
-                    "<font color='Green'>" +
-                    name + "!" +
-                    "</font>" +
-                    "</body>" +
-                    "</html>";
+            msg = "Hola " + name + "!";
         }
         else if(language.equalsIgnoreCase("hindi"))
         {
-            return "<html>" +
-                    "<body style='background-color: coral'>" +
-                    "Namaste, " +
-                    "<font color='Green'>" +
-                    name + "!" +
-                    "</font>" +
-                    "</body>" +
-                    "</html>";
+            msg = "Namaste " + name + "!";
         }
         else if(language.equalsIgnoreCase("german"))
         {
-            return "<html>" +
-                    "<body style='background-color: coral'>" +
-                    "Hallo, " +
-                    "<font color='Green'>" +
-                    name + "!" +
-                    "</font>" +
-                    "</body>" +
-                    "</html>";
+            msg = "Hallo " + name + "!";
         }
         else
         {
-            return "Hello, " + name + "! Your language is unknown.";
+            msg =  "Hello, " + name + "! Your language is unknown.";
         }
 
-
+        model.addAttribute("greetingmessage", msg);
+        return "hello";
 
         //return "Hello, " + name + "!. Your language is " + language;
     }
@@ -107,25 +75,8 @@ public class HelloController {
 
 // lives at /hello/form
     @RequestMapping(value = "form", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
     public String helloForm() {
-        String html =
-                "<html>" +
-                        "<body>" +
-                        "<form method = 'get' action = '/hello'>" +
-                        "<input type = 'text' name = 'name' />" +
-                        "<select name='language'>" +
-                        "<option value='English' selected>English</option>" +
-                        "<option value='French'>French</option>" +
-                        "<option value='Spanish'>Spanish</option>" +
-                        "<option value='Hindi'>Hindi</option>" +
-                        "<option value='German'>German</option>" +
-                        "</select>" +
-                        "<input type = 'submit' value = 'Greet Me!' />" +
-                        "</form>" +
-                        "</body>" +
-                        "</html>";
-        return html;
+        return "form";
     }
 
 }
